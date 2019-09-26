@@ -90,10 +90,13 @@ export default {
   height: 100%;
   width: 280px;
   background-color: #fff;
+  border: 1px solid rgb(231, 231, 231);
+  border-top: none;
   .contitle {
     width: 100%;
     height: 70px;
     padding: 24px 20px;
+    border-top: 1px solid rgb(231, 231, 231);
     .text {
       font-size: 16px;
       font-weight: bold;
@@ -106,6 +109,8 @@ export default {
     background-color: #f8fafc;
     display: flex;
     justify-content: space-between;
+    outline: 1px solid rgb(231, 231, 231);
+    box-sizing: border-box;
     padding: 0 20px;
     .screen {
       display: flex;
@@ -179,14 +184,16 @@ export default {
             transform: scale(0.9);
           }
           .number {
-            height: 18px;
-            width: 18px;
+            height: 22px;
+            width: 22px;
             float: right;
             background-color: #f65f89;
             border-radius: 50%;
             overflow: hidden;
             text-align: center;
-            line-height: 18px;
+            line-height: 23px;
+            font-size: 12px;
+            transform: scale(0.85);
             color: #fff;
           }
         }
