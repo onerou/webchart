@@ -4,13 +4,13 @@
       <div class="messageTitleCon">
         <div class="peoples">
           <div class="peopleImage">
-            <img src="https://placehold.it/40x40" alt srcset />
+            <img src="static/images/user6.jpg" alt srcset />
           </div>
           <div class="peopleImage">
-            <img src="https://placehold.it/40x40" alt srcset />
+            <img src="static/images/user7.jpg" alt srcset />
           </div>
           <div class="peopleImage">
-            <img src="https://placehold.it/40x40" alt srcset />
+            <img src="static/images/user8.jpg" alt srcset />
           </div>
           <div class="peopleAdd">
             <div>+</div>
@@ -23,7 +23,7 @@
     <div class="messagePost">
       <div class="tabTitle">
         <div class="titleName titleNameActive">聊天</div>
-        <div class="titleName">聊天</div>
+        <!-- <div class="titleName">聊天</div> -->
       </div>
       <div class="postCon">
         <textarea class="con" placeholder="write a text..."></textarea>
@@ -56,7 +56,7 @@
             </div>
           </div>
           <div class="userIcon" v-if="item.user == 'loginUser'">
-            <img src="http://placehold.it/40x40" alt srcset />
+            <img :src="item.userIcon" alt srcset />
           </div>
         </div>
         <!-- <div class="mineMessage" v-for="(items,index) of items.messages" :key="index"></div> -->
@@ -75,25 +75,25 @@ export default {
           messages: [
             {
               user: 'loginUser',
-              userIcon: 'http://placehold.it/40x40',
+              userIcon: 'static/images/user6.jpg',
               message: '这是一条消息',
               time: '7:53 AM'
             },
             {
               user: 'other',
-              userIcon: 'http://placehold.it/40x40',
+              userIcon: 'static/images/user7.jpg',
               message: '这是一条消息',
               time: '7:53 AM'
             },
             {
               user: 'other',
-              userIcon: 'http://placehold.it/40x40',
+              userIcon: 'static/images/user8.jpg',
               message: '这是一条消息',
               time: '7:53 AM'
             },
             {
               user: 'other',
-              userIcon: 'http://placehold.it/40x40',
+              userIcon: 'static/images/user9.jpg',
               message:
                 '这是一条超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长超长的消息',
               time: '7:53 AM'
@@ -140,6 +140,10 @@ export default {
         display: flex;
         justify-content: center;
         cursor: pointer;
+        img {
+          width: 100%;
+          height: 100%;
+        }
       }
       .peopleAdd {
         .peopleImage;
@@ -189,6 +193,8 @@ export default {
       }
       .titleNameActive {
         background-color: #fff;
+        border-bottom: 2px solid #62d862;
+        box-sizing: border-box;
       }
     }
     .postCon {

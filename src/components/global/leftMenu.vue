@@ -8,7 +8,9 @@
         v-for="(item) of menuList"
         :key="item.id"
         @click="activeMenu(item)"
-      >{{item.con}}</div>
+      >
+        <Icon :type="item.icon" />
+      </div>
     </div>
   </div>
 </template>
@@ -21,17 +23,16 @@ export default {
       menuList: [
         {
           id: 'people',
-          icon: '/',
-          con: '好友'
+          icon: 'md-person'
         },
         {
           id: 'setUp',
-          icon: '/',
+          icon: 'ios-cog',
           con: '设置'
         },
         {
           id: 'dateTime',
-          icon: '/',
+          icon: 'md-calendar',
           con: '日历'
         }
       ]
@@ -71,7 +72,7 @@ export default {
       text-align: center;
       line-height: 70px;
       color: #ffffff;
-      font-size: 16px;
+      font-size: 25px;
       font-weight: bold;
     }
     .menuActive {

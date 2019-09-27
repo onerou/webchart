@@ -2,7 +2,7 @@
   <div class="peopleInfoWapper">
     <div class="peopleTitle">
       <div class="userIcon">
-        <img src="http://placehold.it/40x40" alt />
+        <img src="static/images/user6.jpg" alt />
       </div>
       <div class="userName">
         <div class="name">Matthew McConaughey</div>
@@ -11,7 +11,7 @@
     <div class="infoRow">
       <div class="name">图灵机器人</div>
       <div class="button">
-        <button>123</button>
+        <Switch v-model="botSwitch" @on-change="botSwitchChange" />
       </div>
     </div>
   </div>
@@ -20,9 +20,13 @@
 export default {
   name: 'peopleInfo',
   data() {
-    return {}
+    return { botSwitch: false }
   },
-  methods: {},
+  methods: {
+    botSwitchChange(status) {
+      console.log('TCL: methods:{botSwitchChange -> status', status)
+    }
+  },
   created() {}
 }
 </script>
@@ -59,6 +63,11 @@ export default {
     }
   }
   .infoRow {
+    display: flex;
+    padding: 10px 20px;
+    justify-content: space-between;
+    background-color: #fff;
+    border: 1px solid rgb(231, 231, 231);
   }
 }
 </style>

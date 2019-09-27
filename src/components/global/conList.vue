@@ -5,21 +5,26 @@
     </div>
     <div class="option">
       <div class="screen">
-        <span>筛</span>
+        <span>
+          <Icon type="ios-funnel" />
+        </span>
       </div>
       <div class="select">
-        <span>下拉</span>
+        <span>
+          all
+          <Icon type="ios-arrow-down" />
+        </span>
       </div>
     </div>
     <div class="sessionList">
       <div class="session" v-for="(item,index) of messageList" :key="index">
         <div class="typeStatus">
           <div class="type">{{item.type}}</div>
-          <div class="status"></div>
+          <div class="status" :class="{isLogin:item.isLogin,noLogin:!item.isLogin}"></div>
         </div>
         <div class="userInfo">
           <div class="icon">
-            <img src="http://placehold.it/40x40" alt srcset />
+            <img :src="item.icon" alt srcset />
           </div>
           <div class="info">
             <div class="userName">{{item.userName}}</div>
@@ -43,39 +48,49 @@ export default {
     return {
       messageList: [
         {
+          icon: 'static/images/user1.jpg',
           userName: 'chatUser',
           time: '7:30 AM',
           type: 'friend',
           autograph: '这是个性签名',
-          messageNumber: 25
+          messageNumber: 25,
+          isLogin: true
         },
         {
+          icon: 'static/images/user2.jpg',
           userName: 'chatUser',
           time: '7:30 AM',
           type: 'friend',
           autograph: '这是个性签名',
-          messageNumber: 25
+          messageNumber: 0,
+          isLogin: true
         },
         {
+          icon: 'static/images/user3.jpg',
           userName: 'chatUser',
           time: '7:30 AM',
           type: 'friend',
           autograph: '这是个性签名',
-          messageNumber: 25
+          messageNumber: 0,
+          isLogin: false
         },
         {
+          icon: 'static/images/user4.jpg',
           userName: 'chatUser',
           time: '7:30 AM',
           type: 'friend',
           autograph: '这是个性签名',
-          messageNumber: 25
+          messageNumber: 0,
+          isLogin: false
         },
         {
+          icon: 'static/images/user5.jpg',
           userName: 'chatUser',
           time: '7:30 AM',
           type: 'friend',
           autograph: '这是个性签名',
-          messageNumber: 25
+          messageNumber: 0,
+          isLogin: false
         }
       ]
     }
@@ -117,7 +132,8 @@ export default {
       flex-direction: column;
       justify-content: center;
       span {
-        background-color: #8d9dbb;
+        cursor: pointer;
+        color: #8d9dbb;
       }
     }
     .select {
@@ -131,7 +147,11 @@ export default {
       justify-content: space-around;
       height: 140px;
       padding: 20px;
+      cursor: pointer;
       border-bottom: 1px solid rgb(231, 231, 231);
+      &:hover {
+        background-color: rgba(231, 231, 231, 0.479);
+      }
       .typeStatus {
         display: flex;
         justify-content: space-between;
@@ -144,7 +164,12 @@ export default {
           height: 8px;
           width: 8px;
           border-radius: 50%;
+        }
+        .isLogin {
           background-color: #62d862;
+        }
+        .noLogin {
+          background-color: #ffd271;
         }
       }
       .userInfo {
