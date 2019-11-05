@@ -1,9 +1,6 @@
 // import API from '@/api/api'
 import axios from 'axios'
-import {
-	Message,
-	Spin
-} from 'iview'
+import { Message, Spin } from 'iview'
 import router from '@/router'
 import cookie from './cookie'
 //1.系统未登录之前的请求
@@ -74,11 +71,7 @@ service.interceptors.request.use(
 // response 拦截器
 service.interceptors.response.use(
 	(response) => {
-		const {
-			data,
-			status,
-			url
-		} = response
+		const { data, status, url } = response
 		destroy(url)
 		/**
 		 * code为非20000是抛错 可结合自己业务进行修改
@@ -127,20 +120,19 @@ export const req = {
 		delete param._index
 		return new Promise((resolve, reject) => {
 			service({
-					method: 'get',
-					url,
-					params: param,
-					cancelToken: new CancelToken((c) => {
-						cancel = c
-					})
+				method: 'get',
+				url,
+				params: param,
+				cancelToken: new CancelToken((c) => {
+					cancel = c
 				})
+			})
 				.then((res) => {
-					console.log('res: ', res)
 					if (!res.data) {
 						resolve(res)
 						return
 					}
-					if ((res.data.code == 0 && res.status == 200) || res.data instanceof Array) {
+					if ((res.data.code == 200 && res.status == 200) || res.data instanceof Array) {
 						console.groupCollapsed(url + '  %cGET', 'font-weight:900;color:red;')
 						if (res.data.result instanceof Array) {
 							res.data.result.map((v) => {
@@ -219,10 +211,10 @@ export const req = {
 		delete param._index
 		return new Promise((resolve, reject) => {
 			service({
-					method: 'post',
-					url,
-					data: param
-				})
+				method: 'post',
+				url,
+				data: param
+			})
 				.then((res) => {
 					// let urlList = url.split('/')
 					// console.log("TCL: post -> url", )
@@ -317,11 +309,11 @@ export const req = {
 		})
 		return new Promise((resolve, reject) => {
 			service({
-					method: type,
-					url,
-					params: formData,
-					data: formData
-				})
+				method: type,
+				url,
+				params: formData,
+				data: formData
+			})
 				.then((res) => {
 					console.log('res: ', res)
 					if (

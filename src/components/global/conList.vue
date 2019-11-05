@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="sessionList">
-      <div class="session" v-for="(item,index) of messageList" :key="index">
+      <div class="session" v-for="(item,index) of getUserList" :key="index">
         <div class="typeStatus">
           <div class="type">{{item.type}}</div>
           <div class="status" :class="{isLogin:item.isLogin,noLogin:!item.isLogin}"></div>
@@ -42,60 +42,16 @@
   </div>
 </template>
 <script>
+import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'conList',
   data() {
-    return {
-      messageList: [
-        {
-          icon: 'static/images/user1.jpg',
-          userName: 'chatUser',
-          time: '7:30 AM',
-          type: 'friend',
-          autograph: '这是个性签名',
-          messageNumber: 25,
-          isLogin: true
-        },
-        {
-          icon: 'static/images/user2.jpg',
-          userName: 'chatUser',
-          time: '7:30 AM',
-          type: 'friend',
-          autograph: '这是个性签名',
-          messageNumber: 0,
-          isLogin: true
-        },
-        {
-          icon: 'static/images/user3.jpg',
-          userName: 'chatUser',
-          time: '7:30 AM',
-          type: 'friend',
-          autograph: '这是个性签名',
-          messageNumber: 0,
-          isLogin: false
-        },
-        {
-          icon: 'static/images/user4.jpg',
-          userName: 'chatUser',
-          time: '7:30 AM',
-          type: 'friend',
-          autograph: '这是个性签名',
-          messageNumber: 0,
-          isLogin: false
-        },
-        {
-          icon: 'static/images/user5.jpg',
-          userName: 'chatUser',
-          time: '7:30 AM',
-          type: 'friend',
-          autograph: '这是个性签名',
-          messageNumber: 0,
-          isLogin: false
-        }
-      ]
-    }
+    return {}
   },
   methods: {},
+  computed: {
+    ...mapGetters('home', ['getUserList'])
+  },
   created() {}
 }
 </script>
